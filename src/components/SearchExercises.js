@@ -64,6 +64,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
           type={'text'}
         />
         <Button 
+          onClick={handleSearch}
           className='search-btn'
           sx={{
             bgcolor: '#FF2625',
