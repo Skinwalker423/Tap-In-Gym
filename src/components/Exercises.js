@@ -23,6 +23,22 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
       window.scrollTo({top: 1800, behavior: 'smooth'})
   }
 
+  useEffect(() => {
+    const fetchExerciseData = async() => {
+        let exerciseData = [];
+
+        if(bodyPart === 'all'){
+          exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+        } else {
+          exerciseData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, exerciseOptions);
+        }
+
+        setExercises(exerciseData);
+    }
+
+    fetchExerciseData();
+  }, [bodyPart])
+
   return (
     <Box 
       id='exercises'
@@ -39,7 +55,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
       <Stack direction={'row'} flexWrap='wrap' justifyContent={'center'} sx={{gap: {lg: '110px', xs: '50px'}}}>
         {currentExercises.map((exercise, index) => {
           return (
-            <ExerciseCard key={index} exercise={exercise} />
+            <ExerciseCard key={index} index={index} exercise={exercise} />
           )
         })}
       </Stack>
