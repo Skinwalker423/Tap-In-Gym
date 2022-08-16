@@ -4,7 +4,6 @@ import { textTransform } from '@mui/system';
 
 const ExerciseVideos = ({exerciseVideos, name}) => {
 
-  console.log(exerciseVideos);
 
   if(!exerciseVideos.length){
     return 'Loading...'
@@ -16,7 +15,7 @@ const ExerciseVideos = ({exerciseVideos, name}) => {
         Wacth <span style={{color: '#ff2625', textTransform: 'capitalize'}}>{name}</span> exercises
       </Typography>
       <Stack justifyContent='flex-start' flexWrap={'wrap'} alignItems='center' sx={{flexDirection: {lg: 'row'}, gap: {lg: '50px', xs: '0'}}}>
-        {exerciseVideos?.slice(0, 3).map((vid, index) => {
+        {exerciseVideos?.slice(0, 6).map((vid, index) => {
           return (
               <Stack key={index}>
                 <a 
