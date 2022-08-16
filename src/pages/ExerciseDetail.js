@@ -26,13 +26,13 @@ const ExerciseDetail = () => {
 
       const fetchYoutubeExerciseVideos = await fetchData(`${youTubeSearchUrl}/search?query=${fetchedDetail.name}`, youtubeOptions);
 
-      setRelatedTargetMucleExercises(fetchYoutubeExerciseVideos.contents);
+      setExerciseVideos(fetchYoutubeExerciseVideos.contents);
 
-      const getRelatedExercisesByTargetMuscle = await fetchData(`${exerciseDbUrl}/exercises/target/${fetchedDetail.target}`);
+      const getRelatedExercisesByTargetMuscle = await fetchData(`${exerciseDbUrl}/exercises/target/${fetchedDetail.target}`, exerciseOptions);
 
-      setRelatedEquipmentExercises(getRelatedExercisesByTargetMuscle);
+      setRelatedTargetMucleExercises(getRelatedExercisesByTargetMuscle);
 
-      const getRelatedExercisesByEquipment = await fetchData(`${exerciseDbUrl}/exercises/equipment/${fetchedDetail.equipment}`);
+      const getRelatedExercisesByEquipment = await fetchData(`${exerciseDbUrl}/exercises/equipment/${fetchedDetail.equipment}`, exerciseOptions);
 
       setRelatedEquipmentExercises(getRelatedExercisesByEquipment);
 
