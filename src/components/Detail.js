@@ -9,8 +9,6 @@ const Detail = ({exerciseDetail}) => {
 
     const {gifUrl, name, bodyPart, target, equipment} = exerciseDetail;
 
-    console.log(gifUrl);
-    console.log(exerciseDetail);
 
     const extraDetail = [
         {
@@ -42,13 +40,13 @@ const Detail = ({exerciseDetail}) => {
                 </Stack>
                 {extraDetail.map(({icon, name}) => (
                     <Stack key={name} direction='row' gap='24px' alignItems={'center'} mt='20px' >
-                    <Button sx={{background: '#fff', borderRadius: '50%'}}>
-                        <img src={icon} alt={name} />
-                    </Button>
-                    <Typography>
-                        {name}
-                    </Typography>
-                </Stack>
+                        <Button sx={{background: '#fff', borderRadius: '50%', width: '100px', height: '100px'}}>
+                            <img style={{width: '50px', height: '50px'}} src={icon} alt={name} />
+                        </Button>
+                        <Typography variant='h5' textTransform={'capitalize'}>
+                            {name}
+                        </Typography>
+                    </Stack>
                 ))}
             </Stack>
         </Stack>

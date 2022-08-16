@@ -7,7 +7,6 @@ import ExerciseCard from './ExerciseCard';
 
 const Exercises = ({exercises, setExercises, bodyPart}) => {
 
-  console.log(exercises);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -15,7 +14,9 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
 
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  
   const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
+  
 
   const paginate = (e, value) => {
       setCurrentPage(value);
@@ -53,7 +54,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
         Showing results
       </Typography>
       <Stack direction={'row'} flexWrap='wrap' justifyContent={'center'} sx={{gap: {lg: '110px', xs: '50px'}}}>
-        {currentExercises.map((exercise, index) => {
+        {currentExercises && currentExercises.map((exercise, index) => {
           return (
             <ExerciseCard key={index} index={index} exercise={exercise} />
           )

@@ -19,7 +19,6 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
     }
 
     fetchBodyPartData();
-    console.log(bodyParts);
   }, [])
 
 
