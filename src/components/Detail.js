@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Stack, Box, Button } from '@mui/material';
+import { Typography, Stack, Button } from '@mui/material';
 
 import BodyPartImage from '../assets/icons/body-part.png';
 import TargetImage from '../assets/icons/target.png';
@@ -38,8 +38,8 @@ const Detail = ({exerciseDetail}) => {
                         Exercises keep you strong. {`${name} `} is one of the best exercises to target your {target}. It will help you improve your mood and gain energy.
                     </Typography>
                 </Stack>
-                {extraDetail.map(({icon, name}) => (
-                    <Stack key={name} direction='row' gap='24px' alignItems={'center'} mt='20px' >
+                {extraDetail.map(({icon, name}, index) => (
+                    <Stack key={index} direction='row' gap='24px' alignItems={'center'} mt='20px' >
                         <Button sx={{background: '#fff', borderRadius: '50%', width: '100px', height: '100px'}}>
                             <img style={{width: '50px', height: '50px'}} src={icon} alt={name} />
                         </Button>

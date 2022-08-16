@@ -1,5 +1,4 @@
 import React from 'react';
-import ExerciseCard from './ExerciseCard';
 import { Box, Stack, Typography } from '@mui/material';
 import HorizontalScrollbar from './HorizontalScrollbar';
 import Loader from './Loader';
@@ -7,16 +6,18 @@ import Loader from './Loader';
 const SimilarExercises = ({targetMuscle, equipment, relatedTargetMuscleExercises, relatedEquipmentExercises }) => {
   return (
     <Box sx={{mt: {lg: '100px', xs: '0'}}}>
-      <Typography variant={'h3'}>
-        Related exercises that target {targetMuscle}
+      <Typography variant={'h3'} mb={5}>
+        Related exercises that target <span style={{color: 'red'}}>{targetMuscle}</span>
+
       </Typography>
       <Stack direction={'row'} sx={{p: '2', position: 'relative'}}>
-        {relatedTargetMuscleExercises ? <HorizontalScrollbar data={relatedTargetMuscleExercises} /> : <Loader />}
-        {/* {relatedTargetMuscleExercises.slice(0,3).map((exercise, index) => {
-          return (
-            <ExerciseCard exercise={exercise} index={index} />
-          )
-        })} */}
+        {relatedTargetMuscleExercises.length ? <HorizontalScrollbar data={relatedTargetMuscleExercises} /> : <Loader />}
+      </Stack>
+      <Typography variant={'h3'} mb={5}>
+        Related exercises that use <span style={{color: 'red'}}>{equipment}</span>
+      </Typography>
+      <Stack direction={'row'} sx={{p: '2', position: 'relative'}}>
+        {relatedEquipmentExercises.length ? <HorizontalScrollbar data={relatedEquipmentExercises} /> : <Loader />}
       </Stack>
     </Box>
   )

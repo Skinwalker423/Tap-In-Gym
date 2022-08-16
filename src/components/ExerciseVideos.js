@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import { textTransform } from '@mui/system';
 
 const ExerciseVideos = ({exerciseVideos, name}) => {
 
@@ -12,7 +11,7 @@ const ExerciseVideos = ({exerciseVideos, name}) => {
   return (
     <Box sx={{marginTop: {lg: '200px', xs: '20px'}}} p='20px'>
       <Typography variant='h3'>
-        Wacth <span style={{color: '#ff2625', textTransform: 'capitalize'}}>{name}</span> exercises
+        Watch <span style={{color: '#ff2625', textTransform: 'capitalize'}}>{name}</span> exercises
       </Typography>
       <Stack justifyContent='flex-start' flexWrap={'wrap'} alignItems='center' sx={{flexDirection: {lg: 'row'}, gap: {lg: '50px', xs: '0'}}}>
         {exerciseVideos?.slice(0, 6).map((vid, index) => {
