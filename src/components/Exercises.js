@@ -14,6 +14,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
 
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+
   
   const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
   
@@ -54,7 +55,7 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
         Showing results
       </Typography>
       <Stack direction={'row'} flexWrap='wrap' justifyContent={'center'} sx={{gap: {lg: '110px', xs: '50px'}}}>
-        {currentExercises && currentExercises.map((exercise, index) => {
+        {currentExercises.length && currentExercises.map((exercise, index) => {
           return (
             <ExerciseCard key={index} index={index} exercise={exercise} />
           )
